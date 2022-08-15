@@ -1,0 +1,809 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MBSD
+{
+    public class file_search
+    {
+        private string url;//URL  ex:http://000.00.00.000/aaabbbccc.php
+        private int statuscode;//HTTPステータスコード ex: 404
+        private string statusDescription;//HTTPステータスコードの内容 ex:Not Found
+        private string htmlfile;//URLで表示させたfileの内容
+        private string file;//URLで表示させたfileの内容(Lower)
+        
+        private int l;//表示したファイルの文字数を取得
+        private string urlfile;  //ex: aaabbbccc.php
+
+        //fileが存在すればより精密に内容を取得
+        private List<string> action = new List<string> { };
+        private List<string> method = new List<string> { };
+        private List<List<string>> name = new List<List<string>> { };
+        private List<List<string>> value = new List<List<string>> { };
+        private List<string> id = new List<string> { };
+        private List<string> href = new List<string> { };
+
+
+
+
+        private List<string> page_down_href = new List<string> { };
+        private string page_up_href;
+        //private bool dr_flg;
+
+
+
+        /// <summary>
+        /// https://blog.okazuki.jp/entry/20121225/HttpClientTips
+        /// </summary>
+        /// <param name="url"></param>
+        public file_search(string url)
+        {
+            try
+            {
+                // HttpClientに設定するハンドラ
+                var handler = new HttpClientHandler
+                {
+                    // 自動でリダイレクトする機能をOFFにする
+                    AllowAutoRedirect = false
+                };
+                // ハンドラーを指定してHttpClientを作る
+                using (var client = new HttpClient(handler))
+                {
+                    this.url = url;
+                    // アクセス先URL
+                    var uri = new Uri(url);
+                    var r = client.GetAsync(uri).Result;
+                    statuscode = (int)r.StatusCode;
+                    statusDescription = r.ReasonPhrase;
+                    urlfile = r.RequestMessage.RequestUri.Segments.Last();
+
+                    Task<string> r2 = client.GetStringAsync(url);
+                    htmlfile = r2.Result;
+                    file = r2.Result.ToLower();
+                    l = file.Length;
+                    action = Hit_action();
+                    method = Hit_method();
+                    name = Hit_name();
+                    value = Hit_value();
+                    id = Hit_id();
+                    href = Hit_href();
+                    page_down_href = Hit_page_down();
+                    page_up_href = Hit_page_up();
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public string getUrl()
+        {
+            return this.url;
+        }
+
+        public int getStatuscode()
+        {
+            return this.statuscode;
+        }
+
+        public string getStatusDescription()
+        {
+            return this.statusDescription;
+        }
+
+        public List<string> getAction()
+        {
+            return this.action;
+        }
+
+        public List<string> getMethod()
+        {
+            return this.method;
+        }
+
+        public List<List<string>> getName()
+        {
+            return this.name;
+        }
+
+        public List<List<string>> getValue()
+        {
+            return this.value;
+        }
+
+        public List<string> getId()
+        {
+            return this.id;
+        }
+
+        public List<string> getHref()
+        {
+            return this.href;
+        }
+
+        public string getUrlfile()
+        {
+            return this.urlfile;
+        }
+
+        public string getFile()
+        {
+            return this.file;
+        }
+
+        public List<string> getPage_down()
+        {
+            return this.page_down_href;
+        }
+
+        public string getPage_up()
+        {
+            return page_up_href;
+        }
+
+        public List<string> Hit_action()
+        {
+            //空のリストを作成
+            List<string> action_list = new List<string> { };
+            for (int i = 0; i < l - 6; i++)
+            {
+                if ("<form " == file.Substring(i, 6))
+                {
+                    int j = i;
+                    while ("</form>" != file.Substring(j, 7))
+                    {
+                        if (" action=" == file.Substring(j, 8) || " action =" == file.Substring(j, 9) || " onsubmit=" == file.Substring(j, 10) || " onsubmit =" == file.Substring(j,11))
+                        {
+                            int start = j;
+                            if (" action=" == file.Substring(j, 8))
+                            {
+                                start = start + 8;
+                            }
+                            else if (" action =" == file.Substring(j, 9))
+                            {
+                                start = start + 9;
+                            }
+                            else if (" onsubmit=" == file.Substring(j, 10))
+                            {
+                                start = start + 10;
+                            }
+                            else
+                            {
+                                start = start + 11;
+                            }
+                            int end = start + 1;
+                            while (true)
+                            {
+                                if ("\"" == file.Substring(start, 1))//ダブルクォーテーションだった場合
+                                {                                   
+                                    while ("\"" != file.Substring(end, 1))
+                                    {
+                                        Console.WriteLine(file.Substring(start, end - start));
+                                        end++;
+                                    }
+                                    start++;
+                                    break;
+                                }
+                                else if ("\'" == file.Substring(start, 1))//シングルクォーテーションだった場合
+                                {
+                                    while ("\'" != file.Substring(end, 1))
+                                    {
+                                        end++;
+                                    }
+                                    start++;
+                                    break;
+                                }
+                                else if (" " == file.Substring(start, 1))//空白だった場合 
+                                {
+                                    start++;//一文字ずらす
+                                }
+                                else//クォーテーションがついていなかった場合
+                                {
+                                    while (" " != file.Substring(end, 1) && ">" != file.Substring(end, 1))
+                                    {
+                                        end++;
+                                    }
+                                    break;
+                                }
+                            }
+                            string filecatch = htmlfile.Substring(start, end - start);
+                            if (filecatch == "/" || filecatch == "#" || filecatch == "")
+                            {
+                                action_list.Add(urlfile);
+                            }
+                            else
+                            {
+                                action_list.Add(filecatch);
+                            }
+                        }
+                        j++;
+                    }
+                    if (action_list.Count == 0)
+                    {
+                        action_list.Add("");
+                    }
+                }
+            }
+            return action_list;
+        }
+
+
+        public List<string> Hit_method()
+        {
+            //空のリストを作成
+            List<string> method_list = new List<string> { };
+            for (int i = 0; i < l - 6; i++)
+            {
+                if ("<form " == file.Substring(i, 6))
+                {
+                    string filecatch = "";
+                    int j = i;
+                    while ("</form>" != file.Substring(j, 7))
+                    {
+                        if (" method=" == file.Substring(j, 8) || " method =" == file.Substring(j,9))
+                        {                  
+                            int start = j;
+                            if (" method=" == file.Substring(j, 8))
+                            {
+                                start = start + 8;
+                            }
+                            else
+                            {
+                                start = start + 9;
+                            }
+                            int end = start + 1;
+                            while (true)
+                            {
+                                if ("\"" == file.Substring(start, 1))//ダブルクォーテーションだった場合
+                                {
+                                    while ("\"" != file.Substring(end, 1))
+                                    {
+                                        end++;
+                                    }
+                                    start++;
+                                    break;
+                                }
+                                else if ("\'" == file.Substring(start, 1))//シングルクォーテーションだった場合
+                                {
+                                    while ("\'" != file.Substring(end, 1))
+                                    {
+                                        end++;
+                                    }
+                                    start++;
+                                    break;
+                                }
+                                else if (" " == file.Substring(start, 1))//空白だった場合 
+                                {
+                                    start++;//一文字ずらす
+                                }
+                                else//クォーテーションがついていなかった場合
+                                {
+                                    while (" " != file.Substring(end, 1) && ">" != file.Substring(end, 1))
+                                    {
+                                        end++;
+                                    }
+                                    break;
+                                }
+                            }
+                            filecatch = htmlfile.Substring(start, end - start);
+                            if (filecatch == "/" || filecatch == "#" || filecatch == "")
+                            {
+                                filecatch = "GET";
+                                method_list.Add(filecatch);
+                            }
+                            else
+                            {
+                                method_list.Add(filecatch.ToUpper());
+                            }
+                        }
+                        j++;
+                    }
+                    if (filecatch == "")
+                    {
+                        method_list.Add("GET");
+                    }
+                }
+            }
+            return method_list;
+        }
+
+
+
+
+        public List<List<string>> Hit_name()
+        {
+            List<string> name_list1 = new List<string> { };
+            List<List<string>> name_list2 = new List<List<string>> { };
+            for (int i = 0; i < l - 5; i++)
+            {
+                if ("<form " == file.Substring(i, 6))
+                {
+                    int j = i;
+                    while ("</form>" != file.Substring(j, 7))
+                    {
+                        if ("<input " == file.Substring(j, 7) || "<button " == file.Substring(j, 8) || "<select " == file.Substring(j, 8))
+                        {
+                            string filecatch = "";
+                            int k = j;
+                            while (">" != file.Substring(k, 1))
+                            {
+                                if (" name=" == file.Substring(k, 6) || " name =" == file.Substring(k, 7))
+                                {
+                                    int start = k;                                    
+                                    if (" name=" == file.Substring(k, 6))
+                                    {
+                                        start = start + 6;
+                                    }
+                                    else
+                                    {
+                                        start = start + 7;
+                                    }
+                                    int end = start + 1;
+                                    while (true)
+                                    {
+                                        if ("\"" == file.Substring(start, 1))//ダブルクォーテーションだった場合
+                                        {
+                                            while ("\"" != file.Substring(end, 1))
+                                            {
+                                                Console.WriteLine(file.Substring(start, end - start));
+                                                end++;
+                                            }
+                                            start++;
+                                            break;
+                                        }
+                                        else if ("\'" == file.Substring(start, 1))//シングルクォーテーションだった場合
+                                        {
+                                            while ("\'" != file.Substring(end, 1))
+                                            {
+                                                Console.WriteLine(file.Substring(start, end - start));
+                                                end++;
+                                            }
+                                            start++;
+                                            break;
+                                        }
+                                        else if(" " == file.Substring(start, 1))//空白だった場合 
+                                        {
+                                            start++;//一文字ずらす
+                                        }
+                                        else//クォーテーションがついていなかった場合
+                                        {
+                                            while (" " != file.Substring(end, 1) && ">" != file.Substring(end, 1))
+                                            {
+                                                Console.WriteLine(file.Substring(start, end - start));
+                                                end++;
+                                            }
+                                            break;
+                                        }                                       
+                                    }
+                                    filecatch = htmlfile.Substring(start, end - start);                                  
+                                }
+                                k++;
+                            }
+                            if (filecatch == "")//formはあるけどnameがなかった場合
+                            {
+                                name_list1.Add("");//空白を入れる
+                            }
+                            else
+                            {
+                                name_list1.Add(filecatch);
+                            }
+                        }
+                        j++;
+                    }
+                    name_list2.Add(name_list1);
+                    name_list1 = new List<string> { };
+                }
+            }
+            return name_list2;
+        }
+
+
+
+        public List<List<string>> Hit_value()
+        {
+            //int count = 0;
+            //空のリストを作成
+            List<string> value_list1 = new List<string> { };
+            List<List<string>> value_list2 = new List<List<string>> { };
+            for (int i = 0; i < l - 6; i++)
+            {
+                int j = i;
+                //Console.WriteLine(file.Substring(i, 6));
+                if ("<form " == file.Substring(i, 6))
+                {
+                    //Console.WriteLine(file.Substring(j, 10));
+                    while ("</form>" != file.Substring(j, 7))
+                    {
+                        //Console.WriteLine(file.Substring(j, 7));
+                        if ("<input " == file.Substring(j, 7) || "<select " == file.Substring(j, 8) || "<button " == file.Substring(j, 8))
+                        {
+                            bool flg = false;
+                            int k = j;
+                            string filecatch = "";
+                            while (">" != file.Substring(k,1))
+                            {
+                                if ("hidden" == file.Substring(k,6))
+                                {
+                                    flg = true;
+                                }
+                                //Console.WriteLine(file.Substring(k, 6));
+                                if ("value=" == file.Substring(k, 6) || "value =" == file.Substring(k, 7))
+                                {
+                                    int start = k;
+                                    if ("value=" == file.Substring(k, 6))
+                                    {
+                                        start = start + 6;
+                                    }
+                                    else
+                                    {
+                                        start = start + 7;
+                                    }
+                                    int end = start + 1;
+                                    while (true)
+                                    {
+                                        if ("\"" == file.Substring(start, 1))//ダブルクォーテーションだった場合
+                                        {
+                                            while ("\"" != file.Substring(end, 1))
+                                            {
+                                                end++;
+                                            }
+                                            start++;
+                                            break;
+                                        }
+                                        else if ("\'" == file.Substring(start, 1))//シングルクォーテーションだった場合
+                                        {
+                                            while ("\'" != file.Substring(end, 1))
+                                            {
+                                                end++;
+                                            }
+                                            start++;
+                                            break;
+                                        }
+                                        else if (" " == file.Substring(start, 1))//空白だった場合 
+                                        {
+                                            start++;//一文字ずらす
+                                        }
+                                        else//クォーテーションがついていなかった場合
+                                        {
+                                            while (" " != file.Substring(end, 1) && ">" != file.Substring(end, 1))
+                                            {
+                                                end++;
+                                            }
+                                            break;
+                                        }
+                                    }
+                                    filecatch = htmlfile.Substring(start, end - start);                                    
+                                }
+                                k++;
+                            }
+                            if (flg)
+                            {
+                                value_list1.Add(filecatch);
+                            }
+                            else
+                            {
+                                value_list1.Add("");
+                            }
+                        }                       
+                        j++;
+                    }
+                    value_list2.Add(value_list1);
+                    value_list1 = new List<string> { };
+                    //count = 0;
+                }
+            }
+            return value_list2;
+        }
+
+
+        public List<string> Hit_id()
+        {
+            List<string> id_list = new List<string> { };
+            for (int i = 0; i < l - 5; i++)
+            {
+                if ("<form " == file.Substring(i, 6))
+                {
+                    int j = i;
+                    while ("</form>" != file.Substring(j, 7))
+                    {
+                        if ("id=" == file.Substring(j, 3))
+                        {
+                            int start = j;
+                            while (true)
+                            {
+                                if ("\"" == file.Substring(start, 1))
+                                {
+                                    break;
+                                }
+                                start++;
+                            }
+                            int end = start + 1;
+                            while (true)
+                            {
+                                if ("\"" == file.Substring(end, 1))
+                                {
+                                    break;
+                                }
+                                end++;
+                            }
+                            string filecatch = htmlfile.Substring(start + 1, end - start - 1);
+                            id_list.Add(filecatch);
+                        }
+                        j++;
+                    }
+                    if (id_list.Count == 0)
+                    {
+                        id_list.Add(null);
+                        return id_list;
+                    }
+
+                }
+
+            }
+            return id_list;
+        }
+        public List<string> Hit_href()
+        {
+            //空のリストを作成
+            List<string> href_list = new List<string> { };
+            for (int i = 0; i < l - 6; i++)
+            {
+                if ("<a " == file.Substring(i, 3))
+                {
+                    int j = i;
+
+                    while ("</a>" != file.Substring(j, 4))
+                    {
+                        if ("href=" == file.Substring(j, 5))
+                        {
+                            int start = j;
+                            while (true)
+                            {
+                                if ("\"" == file.Substring(start, 1))
+                                {
+                                    break;
+                                }
+                                start++;
+                            }
+                            int end = start + 1;
+                            while (true)
+                            {
+                                //if ("\"" == file.Substring(end, 1) || "?" == file.Substring(end, 1))
+                                if ("\"" == file.Substring(end, 1))
+                                {
+                                    break;
+                                }
+                                end++;
+                            }
+
+                            string filecatch = htmlfile.Substring(start + 1, end - start - 1);
+                            href_list.Add(filecatch);
+                        }
+                        j++;
+                    }
+                    if (href_list.Count == 0)
+                    {
+                        href_list.Add("");
+                    }
+                }
+            }
+          
+            return href_list;
+        }
+
+        public List<string> Hit_page_down()
+        {
+            //空のリストを作成
+            List<string> down_list = new List<string> { };
+            for (int i = 0; i < l - 8; i++)
+            {
+                int j = i;
+                //Console.WriteLine(file.Substring(i, 8));
+                if ("<tr><td " == file.Substring(i, 8))
+                {
+                    //Console.WriteLine(file.Substring(j, 10));
+                    while ("</td></tr>" != file.Substring(j, 10))
+                    {
+                        //Console.WriteLine(file.Substring(j, 4));
+                        if ("alt=" == file.Substring(j, 4))
+                        {
+                            int start = j;
+                            while (true)
+                            {
+                                if ("\"" == file.Substring(start, 1))
+                                {
+                                    break;
+                                }
+                                start++;
+                            }
+                            int end = start + 1;
+                            while (true)
+                            {
+                                if ("\"" == file.Substring(end, 1) || "?" == file.Substring(end, 1))
+                                {
+                                    break;
+                                }
+                                end++;
+                            }
+
+                            string filecatch = htmlfile.Substring(start + 1, end - start - 1);
+                            //Console.WriteLine(filecatch);
+                            if ("[DIR]" == filecatch)
+                            {
+                                int k = end;
+                                while (true)
+                                {
+                                    //Console.WriteLine(file.Substring(k, 3));
+                                    if ("<a " == file.Substring(k, 3))
+                                    {
+                                        int m = k;
+                                        while ("</a>" != file.Substring(m, 4))
+                                        {
+                                            //Console.WriteLine(file.Substring(m, 5));
+                                            if ("href=" == file.Substring(m, 5))
+                                            {
+                                                int start2 = m;
+                                                while (true)
+                                                {
+                                                    if ("\"" == file.Substring(start2, 1))
+                                                    {
+                                                        break;
+                                                    }
+                                                    start2++;
+                                                }
+                                                int end2 = start2 + 1;
+                                                while (true)
+                                                {
+                                                    if ("\"" == file.Substring(end2, 1) || "?" == file.Substring(end2, 1))
+                                                    {
+                                                        break;
+                                                    }
+                                                    end2++;
+                                                }
+
+                                                string filecatch2 = htmlfile.Substring(start2 + 1, end2 - start2 - 1);
+                                                //Console.WriteLine(filecatch2);
+                                                down_list.Add(filecatch2);
+                                                break;
+                                            }
+                                            m++;
+                                        }
+                                        if (down_list.Count == 0)
+                                        {
+                                            down_list.Add(null);
+                                            return down_list;
+                                        }
+                                        break;
+                                    }
+                                    k++;
+                                }
+                            }
+                        }
+                        j++;
+                    }
+                }
+            }
+            return down_list;
+        }
+
+        public string Hit_page_up()
+        {
+            string page_up = "";
+            for (int i = 0; i < l - 8; i++)
+            {
+                int j = i;
+                //Console.WriteLine(file.Substring(i, 8));
+                if ("<tr><td " == file.Substring(i, 8))
+                {
+                    //Console.WriteLine(file.Substring(j, 10));
+                    while ("</td></tr>" != file.Substring(j, 10))
+                    {
+                        //Console.WriteLine(file.Substring(j, 4));
+                        if ("alt=" == file.Substring(j, 4))
+                        {
+                            int start = j;
+                            while (true)
+                            {
+                                if ("\"" == file.Substring(start, 1))
+                                {
+                                    break;
+                                }
+                                start++;
+                            }
+                            int end = start + 1;
+                            while (true)
+                            {
+                                if ("\"" == file.Substring(end, 1) || "?" == file.Substring(end, 1))
+                                {
+                                    break;
+                                }
+                                end++;
+                            }
+
+                            string filecatch = htmlfile.Substring(start + 1, end - start - 1);
+                            //Console.WriteLine(filecatch);
+                            if ("[PARENTDIR]" == filecatch)
+                            {
+                                int k = end;
+                                while (true)
+                                {
+                                    //Console.WriteLine(file.Substring(k, 3));
+                                    if ("<a " == file.Substring(k, 3))
+                                    {
+                                        int m = k;
+                                        while ("</a>" != file.Substring(m, 4))
+                                        {
+                                            //Console.WriteLine(file.Substring(m, 5));
+                                            if ("href=" == file.Substring(m, 5))
+                                            {
+                                                int start2 = m;
+                                                while (true)
+                                                {
+                                                    if ("\"" == file.Substring(start2, 1))
+                                                    {
+                                                        break;
+                                                    }
+                                                    start2++;
+                                                }
+                                                int end2 = start2 + 1;
+                                                while (true)
+                                                {
+                                                    if ("\"" == file.Substring(end2, 1) || "?" == file.Substring(end2, 1))
+                                                    {
+                                                        break;
+                                                    }
+                                                    end2++;
+                                                }
+
+                                                page_up = htmlfile.Substring(start2 + 1, end2 - start2 - 1);
+                                                //Console.WriteLine(page_up);
+                                                return page_up;
+                                            }
+                                            m++;
+                                        }
+                                    }
+                                    k++;
+                                }
+                            }
+                        }
+                        j++;
+                    }
+                }
+            }
+            return page_up;
+        }
+
+        public string url_shave(string url)
+        {
+            string url_shave = "";
+            for (int j = url.Length; j > 0; j--)
+            {
+                if (url.Substring(j - 2, 1) == "/")
+                {
+                    url_shave = url.Substring(0, j - 1);
+                    break;
+                }
+            }
+            return url_shave;
+        }
+
+        public int url_slash_count(string url)
+        {
+            int count1 = 0;// URLのスラッシュの数
+            for (int i = 0; i < url.Length; i++)// URLに含まれているスラッシュの数を調べる
+            {
+                if (url.Substring(i, 1) == "/")
+                {
+                    count1++;
+                }
+            }
+            return count1;
+        }
+    }
+}

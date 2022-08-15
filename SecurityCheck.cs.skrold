@@ -1,0 +1,223 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+
+namespace MBSD
+{
+    class SecurityCheck
+    {
+
+        public void attack_common(ConfigInfo insCI)
+        {
+            int attack_type = insCI.getAttackType();
+
+            // SQLインジェクション
+            if (attack_type == 1)
+            {
+                checkSQLInjection(insCI);
+            }
+            // クロスサイトスクリプティング
+            else if(attack_type == 2)
+            {
+                checkXSS(insCI);
+            }
+            // ディレクトリ・リスティング
+            else if (attack_type == 5)
+            {
+                checkDirectoryListing(insCI);
+            }
+            // ディレクトリトラバーサル
+            else if (attack_type == 6)
+            {
+                checkDirectoryTraversal(insCI);
+            }
+
+        }
+
+        // SQLインジェクション攻撃
+        public void checkSQLInjection(ConfigInfo insCI)
+        {
+
+            int attack_pattern = insCI.getAttackPattern();
+            string method = insCI.getMethod();
+            Dictionary<string, string> dictionary = insCI.getDictionary();
+            int target_security_code = insCI.getTargetSecurityCode();
+            MethodUtil insMU = new MethodUtil();
+            //string url = insCI.getURL();
+            string paramtuki_url = insCI.getParamtukiURL();
+            // 標準出力の取得
+            
+            //string stdout = insMU.execCommand(paramtuki_url, true);
+            int after_status_code = insCI.getRequestURLAfterStatuCode();
+            
+            string cookie = insMU.Cookie(paramtuki_url, method, dictionary);
+            // チェックパターン1
+            if (attack_pattern == 1)
+            {
+                if (after_status_code == 302)
+                {
+
+                    if(cookie!= null)
+                    {
+                        insCI.setSecurityFlag(true);
+                    }              
+                }
+
+            }
+            if (attack_pattern == 2)
+            {
+                bool isFlag = checkError(insCI.getRequestURLAfterSroce());
+                if (isFlag )
+                {
+                    insCI.setSecurityFlag(true);
+                }
+            }
+
+            if (attack_pattern == 3)
+            {
+                if (checkSQLTime(insCI.getParamtukiURL(),method,dictionary))
+                {
+                    insCI.setSecurityFlag(true);
+                }           
+            }
+        }
+
+
+        public void checkXSS(ConfigInfo insCI)
+        {
+            MethodUtil insMU = new MethodUtil();
+
+            //string before_url_sorce = insCI.getRequestURLSroce();
+            string after_url_sorce = insCI.getRequestURLAfterSroce();
+
+            Console.WriteLine(after_url_sorce);
+            string[] after_url = insMU.dataChange(after_url_sorce);
+            string pattern = @"\s*<script>alert.*</script>Hack.*"; // \s :　空白 * : 0回以上の繰り返し $:末尾
+            bool isFlag = false;
+            string matchstr = "";
+            for (var i = 0; i < after_url.Length; i++)
+            {
+                string strLine = after_url[i];
+                (isFlag, matchstr) = insMU.checkRegix(strLine, pattern);
+                if (isFlag)
+                {
+                    insCI.setSecurityFlag(true);
+                    break;
+                }
+            }
+
+            Console.WriteLine(insCI);
+
+        }
+
+        public void checkDirectoryListing(ConfigInfo insCI)
+        {
+            //Console.WriteLine("hoge");
+            MethodUtil insMU = new MethodUtil();
+
+            string url = insCI.getURL();
+            bool is_flag = insMU.IndexSearch(url);
+
+            if (is_flag)
+            {
+                insCI.setSecurityFlag(true);
+            }
+
+            insMU = null;
+        }
+
+        public void checkDirectoryTraversal(ConfigInfo insCI)
+        {
+            int after_status_code = insCI.getRequestURLAfterStatuCode();
+            int target_security_code = insCI.getTargetSecurityCode();
+
+            if (after_status_code == target_security_code)
+            {
+                insCI.setSecurityFlag(true);
+            }
+
+        }
+
+
+
+        public bool checkSQLTime(string url,string method,Dictionary<string,string> dictionary)
+        {
+            try
+            {
+                Console.WriteLine(url);
+                var timer = new System.Diagnostics.Stopwatch();
+                if (method == "GET")
+                {
+                    timer.Start();
+                    var client = new HttpClient();
+                    var uri = new Uri(url);
+                    var r = client.GetAsync(uri).Result;
+                    timer.Stop();
+                    Console.WriteLine("{0:0.000}秒", timer.Elapsed.TotalSeconds);
+                    if (timer.Elapsed.TotalSeconds > 2)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                else
+                {
+                    timer.Start();
+                    var client = new HttpClient();
+                    var content = new FormUrlEncodedContent(dictionary);
+                    var uri = new Uri(url);
+                    var res = client.PostAsync(uri, content).Result;
+                    timer.Stop();
+                    Console.WriteLine("{0:0.000}秒", timer.Elapsed.TotalSeconds);
+                    if (timer.Elapsed.TotalSeconds > 2)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+
+
+        }
+
+        public bool checkError(string soruse)
+        {
+            try
+            {
+                string[] list_src = soruse.Split(new string[] { "\n" }, StringSplitOptions.None);
+                string[] pattern = { @"\s*syntax error.*", @"\s*You can only execute one.*", @"\s*You have an error in your SQL syntax.*" };
+
+                foreach (var item in pattern)
+                {
+                    foreach (var item2 in list_src)
+                    {
+                        Match match = Regex.Match(item2, item);
+                        if (match.Success)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+
+        }
+    }
+}

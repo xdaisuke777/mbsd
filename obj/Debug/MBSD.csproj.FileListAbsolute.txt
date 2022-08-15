@@ -1,0 +1,358 @@
+C:\Users\admin\source\repos\MBSD\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\source\repos\MBSD\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\source\repos\MBSD\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\source\repos\MBSD\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\MBSD\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\source\repos\MBSD\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\source\repos\MBSD\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\source\repos\MBSD\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\MBSD\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\source\repos\MBSD\MBSD\obj\Debug\MBSD.pdb
+C:\Users\xdais\source\repos\MBSD\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\xdais\source\repos\MBSD\MBSD\bin\Debug\MBSD.exe
+C:\Users\xdais\source\repos\MBSD\MBSD\bin\Debug\MBSD.pdb
+C:\Users\xdais\source\repos\MBSD\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\xdais\source\repos\MBSD\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\xdais\source\repos\MBSD\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\xdais\source\repos\MBSD\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\xdais\source\repos\MBSD\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\xdais\source\repos\MBSD\MBSD\obj\Debug\MBSD.exe
+C:\Users\xdais\source\repos\MBSD\MBSD\obj\Debug\MBSD.pdb
+C:\Users\xdais\source\repos\MBSD\MBSD\obj\Debug\MBSD.Form2.resources
+C:\Users\admin\source\repos\MBSD\MBSD\obj\Debug\MBSD.Form2.resources
+C:\Users\admin\source\repos\MBSD\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\Desktop\hoge\MBSD_koyabu\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\Desktop\MBSD_koyabu\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\source\repos\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.pdb
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe.config
+C:\Users\admin\Desktop\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CopyComplete
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.pdb
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe.config
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CopyComplete
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\source\repos\main\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.pdb
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe.config
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CopyComplete
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\source\repos\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.pdb
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe.config
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CopyComplete
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+D:\MBSD_20211022_1530\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.pdb
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe.config
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CopyComplete
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\Desktop\MBSD_20211026_1030\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.pdb
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe.config
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CopyComplete
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.pdb
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\bin\Debug\WindowsFormsApp3.exe.config
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CopyComplete
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+D:\20211027_1250_MBSD\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+D:\20211027_1250_MBSD - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\Desktop\20211029_1430\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+D:\20211029_1443\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+D:\20211029_1443\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+D:\20211029_1443\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+D:\20211029_1443\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\20211029_1443\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+D:\20211029_1443\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\20211029_1443\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\20211029_1443\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\20211029_1443\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\20211029_1443\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+D:\20211029_1443\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+D:\20211029_1443 - koyabu\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\Desktop\20211101_1110\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+D:\★20211101_1240\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+D:\★20211101_1240\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+D:\★20211101_1240\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+D:\★20211111_1500\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+D:\★20211111_1500\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+D:\★20211111_1500\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+D:\★20211111_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\★20211111_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+D:\★20211111_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\★20211111_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\★20211111_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\★20211111_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\★20211111_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+D:\★20211111_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+D:\★20211111_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.Nowloding.resources
+D:\★2021_1115\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+D:\★2021_1115\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+D:\★2021_1115\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+D:\★2021_1115\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\★2021_1115\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+D:\★2021_1115\MBSD_naru2\MBSD\obj\Debug\MBSD.Nowloding.resources
+D:\★2021_1115\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\★2021_1115\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\★2021_1115\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\★2021_1115\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\★2021_1115\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+D:\★2021_1115\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.Nowloding.resources
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\OneDrive\デスクトップ\新しいフォルダー (2)\★2021_1115_1500\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.Nowloding.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\★2021_1115_1612\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.Nowloding.resources
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\Desktop\★2021_1115_1612\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\bin\Debug\MBSD.exe.config
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\bin\Debug\MBSD.exe
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\bin\Debug\MBSD.pdb
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.Form1.resources
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.Nowloding.resources
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.exe
+D:\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Debug\MBSD.pdb
+D:\★提出物-最終\program\MBSD\bin\Debug\MBSD.exe.config
+D:\★提出物-最終\program\MBSD\bin\Debug\MBSD.exe
+D:\★提出物-最終\program\MBSD\bin\Debug\MBSD.pdb
+D:\★提出物-最終\program\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\★提出物-最終\program\MBSD\obj\Debug\MBSD.Form1.resources
+D:\★提出物-最終\program\MBSD\obj\Debug\MBSD.Nowloding.resources
+D:\★提出物-最終\program\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\★提出物-最終\program\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\★提出物-最終\program\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\★提出物-最終\program\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\★提出物-最終\program\MBSD\obj\Debug\MBSD.exe
+D:\★提出物-最終\program\MBSD\obj\Debug\MBSD.pdb
+D:\★提出物-最終 second\program\MBSD\bin\Debug\MBSD.exe.config
+D:\★提出物-最終 second\program\MBSD\bin\Debug\MBSD.exe
+D:\★提出物-最終 second\program\MBSD\bin\Debug\MBSD.pdb
+D:\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+D:\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.Form1.resources
+D:\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.Nowloding.resources
+D:\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+D:\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.UserControl1.resources
+D:\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+D:\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+D:\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.exe
+D:\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.pdb
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\bin\Debug\MBSD.exe
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\bin\Debug\MBSD.pdb
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.Nowloding.resources
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.exe
+C:\Users\admin\Desktop\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.pdb
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\bin\Debug\MBSD.exe.config
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\bin\Debug\MBSD.exe
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\bin\Debug\MBSD.pdb
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.csproj.AssemblyReference.cache
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.Form1.resources
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.Nowloding.resources
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.Properties.Resources.resources
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.UserControl1.resources
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.csproj.GenerateResource.cache
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.exe
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Debug\MBSD.pdb

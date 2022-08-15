@@ -1,0 +1,496 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Net.Http;
+namespace MBSD
+{
+    public class file_attack_code
+    {
+        private List<file_search> file_output;
+        private string domein_url;
+        private int No = 1;
+        private List<string> DT_url_list = new List<string> { };
+        private List<string> DR_url_list = new List<string> { };
+
+
+        private List<string> DR_sorcefile_list = new List<string> { };
+        private List<string> DT_sorcefile_list = new List<string> { };
+        private List<string> test = new List<string>{ "admin","etc","var","www","html","httpd","static","css","hoge","file","test","Windows","sourse", "dashboard" };
+        public file_attack_code(List<file_search> file_output,string url)
+        {
+            this.file_output = file_output;
+            this.domein_url = url;
+        }
+        public void SQL()
+        {
+            foreach (var item in file_output)//インスタンスを一つ取り出す
+            {
+                if (item.getStatuscode() == 200)//取り出したインスタンスのHTTPステータスコードを調べ、ファイルが存在するか調べる
+                {
+                    //ex:  item.getAction()   [action1,action2,action3]
+                    if (item.getAction().Count != 0 && item.getName().Count != 0)//item.getName()  ex:  [  [ name1,name2 ],[name3],[name4,name5,name6]  ]
+                    {
+                        for (int i = 0; i < Program.getAttack().Count / 6; i++)
+                        {
+                            if (Program.getAttack()[2 + i * 6] == "1")//config.csvの参照している列がSQLインジェクションの攻撃列（1）なら
+                            {
+
+                                for (int a = 0;a < item.getAction().Count;a++)
+                                {
+                                    string sqlurl = "";
+                                    bool flg = true;
+                                    for (int n = 0;n < item.getName()[a].Count;n++)
+                                    {
+                                        if (item.getName()[a][n] != "" && item.getName()[a][n] != null)
+                                        {
+                                            switch (item.getValue()[a][n].Length)// value1 → value2 ex:    "" → "hoge"
+                                            {
+                                                case int s when s == 0://valueがなかったら
+                                                    if (flg)
+                                                    {
+                                                        sqlurl = "?" + item.getName()[a][n] + "=" + Program.getAttack()[0 + 6 * i];
+
+                                                    }
+                                                    else
+                                                    {
+                                                        sqlurl = sqlurl + "&" + item.getName()[a][n] + "=" + Program.getAttack()[1 + 6 * i];
+                                                    }
+                                                    flg = false;
+                                                    break;
+
+                                                case int s when s > 0://valueに文字が含まれていたら
+                                                    if (flg)
+                                                    {
+                                                        sqlurl = "?" + item.getName()[a][n] + "=" + item.getValue()[a][n];
+                                                    }
+                                                    else
+                                                    {
+                                                        sqlurl = sqlurl + "&" + item.getName()[a][n] + "=" + item.getValue()[a][n];
+                                                    }
+                                                    flg = false;
+                                                    break;
+                                            }                                        
+                                        }
+                                    }
+                                    if (sqlurl != "" && item.getAction()[a] != null && item.getAction()[a] != "")//sqlurlが空白でないなら
+                                    {
+                                        string url = "";
+                                        if (item.getAction()[a].Substring(0, 1) == "/" && item.getAction()[a].Substring(0, 2) != "//")//ドメインを省略している、かつ、プロトコル名を省略ではない。
+                                        {
+                                            url = this.domein_url;
+                                        }
+                                        else
+                                        {
+                                            url = item.url_shave(item.getUrl());
+                                        }
+                                        
+                                        if (item.getAction()[a].Substring(0, 1) == "/")
+                                        {
+                                            url = url + item.getAction()[a].Substring(1, item.getAction()[a].Length - 1);
+                                        }
+                                        else
+                                        {
+                                            url = url + item.getAction()[a];
+                                        }
+                                        Console.WriteLine(url);
+                                        Program.getConfig().Add(string.Format("{0}", No));
+                                        Program.getConfig().Add(url);
+                                        Program.getConfig().Add(sqlurl);
+                                        Program.getConfig().Add(Program.getAttack()[2 + 6 * i]);
+                                        Program.getConfig().Add(Program.getAttack()[3 + 6 * i]);
+                                        Program.getConfig().Add(Program.getAttack()[4 + 6 * i]);
+                                        Program.getConfig().Add(Program.getAttack()[5 + 6 * i]);
+                                        Program.getConfig().Add(item.getMethod()[a]);
+                                        No++;
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        public void XSS()
+        {
+            foreach (var item in file_output)
+            {
+                if (item.getStatuscode() == 200)
+                {
+                    //ex:  item.getAction()   [action1,action2,action3]
+                    if (item.getAction().Count != 0 && item.getName().Count != 0)//item.getName()  ex:  [  [ name1,name2 ],[name3],[name4,name5,name6]  ]
+                    {
+                        for (int i = 0; i < Program.getAttack().Count / 6; i++)
+                        {
+                            if (Program.getAttack()[2 + i * 6] == "2")
+                            {
+                                for (int a = 0; a < item.getAction().Count; a++)// a = 0～2
+                                {
+                                    string xssurl = "";
+                                    bool flg = true;
+
+                                    for (int n =0;n<item.getName()[a].Count;n++)//[name1,name2]　→　[name3] → [name4,name5,name6]
+                                    {
+                                        if (item.getName()[a][n] != "" && item.getName()[a][n] != null)//name1　→name2
+                                        {
+                                            switch (item.getValue()[a][n].Length)// value1 → value2 ex:    "" → "hoge"
+                                            {
+                                                case int s when s == 0://valueがなかったら
+                                                    if (flg)
+                                                    {
+                                                        xssurl = xssurl + item.getName()[a][n] + "=" + Program.getAttack()[0 + i * 6];
+                                                        
+                                                    }
+                                                    else
+                                                    {
+                                                        xssurl = xssurl + "&" + item.getName()[a][n] + "=" + Program.getAttack()[1 + i * 6];
+                                                    }
+                                                    flg = false;
+                                                    break;
+
+                                                case int s when s > 0://valueに文字が含まれていたら
+                                                    if (flg)
+                                                    {
+                                                        xssurl = xssurl + item.getName()[a][n] + "=" + item.getValue()[a][n];
+                                                    }
+                                                    else
+                                                    {
+                                                        xssurl = xssurl + "&" + item.getName()[a][n] + "=" + item.getValue()[a][n];
+                                                    }
+                                                    flg = false;
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                    if (xssurl != "" && item.getAction()[a] != null && item.getAction()[a] != "")//組み合わせurlが空白でなく、actionがnullでないなら
+                                    {
+                                        string url = "";
+                                        if (item.getAction()[a].Substring(0, 1) == "/" && item.getAction()[a].Substring(0, 2) != "//")//ドメインを省略している、かつ、プロトコル名を省略ではない。
+                                        {
+                                            url = this.domein_url;
+                                        }
+                                        else
+                                        {
+                                            url = item.url_shave(item.getUrl());
+                                        }
+
+                                        if (item.getAction()[a].Substring(0, 1) == "/")
+                                        {
+                                            url = url + item.getAction()[a].Substring(1, item.getAction()[a].Length - 1);
+                                        }
+                                        else
+                                        {
+                                            url = url + item.getAction()[a];
+                                        }
+                                        Program.getConfig().Add(string.Format("{0}", No));
+                                        Program.getConfig().Add(url);
+                                        Program.getConfig().Add("?" + xssurl);
+                                        Program.getConfig().Add(Program.getAttack()[2 + 6 * i]);
+                                        Program.getConfig().Add(Program.getAttack()[3 + 6 * i]);
+                                        Program.getConfig().Add(Program.getAttack()[4 + 6 * i]);
+                                        Program.getConfig().Add(Program.getAttack()[5 + 6 * i]);
+                                        Program.getConfig().Add(item.getMethod()[a]);
+                                        No++;
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        public void DT()
+        {
+            foreach (var item in file_output)
+            {
+                for (int i = 0; i < Program.getAttack().Count / 6; i++)
+                {
+                    if (Program.getAttack()[2 + i * 6] == "6")
+                    {
+                        if (item.getUrl().Substring(0, 4) == "http")//urlの始まりがhttpだったら
+                        {
+                            for (int k = item.getUrl().Length; k > 0; k--)
+                            {
+                                if (item.getUrl().Substring(k - 1, 1) == "/")
+                                {
+                                    using (var client = new HttpClient())
+                                    {
+                                        try
+                                        {
+                                            //Console.WriteLine(item.getUrl().Substring(0, k));//ex: http://192.168.33.10/MBSD/a/b/c/
+                                            string url = item.getUrl().Substring(0, k);
+                                            var uri = new Uri(url);
+                                            var r = client.GetAsync(uri).Result;
+                                            int statuscode = (int)r.StatusCode;
+                                            Task<string> r2 = client.GetStringAsync(url);
+                                            string file = r2.Result;
+                                            if (statuscode == 200)
+                                            {
+                                                if (!DT_url_list.Contains(url) && !DT_sorcefile_list.Contains(file))
+                                                {
+                                                    DT_url_list.Add(url);
+                                                    DT_sorcefile_list.Add(file);
+                                                    dt_page_move(url, i);
+                                                }
+                                            }
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            Console.WriteLine(e.Message);
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        public void DR()
+        {
+            foreach (var item in file_output)
+            {
+                if (item.getUrl().Substring(0, 4) == "http")
+                {
+                    for (int k = item.getUrl().Length; k > 0; k--)
+                    {
+                        if (item.getUrl().Substring(k - 1, 1) == "/")
+                        {
+                            using (var client = new HttpClient())
+                            {
+                                try
+                                {
+                                    Console.WriteLine(item.getUrl().Substring(0, k));//ex: http://192.168.33.10/MBSD/a/b/c/
+                                    string url = item.getUrl().Substring(0, k);
+                                    var uri = new Uri(url);
+                                    var r = client.GetAsync(uri).Result;
+                                    int statuscode = (int)r.StatusCode;
+                                    Task<string> r2 = client.GetStringAsync(url);
+                                    string file = r2.Result;
+                                    if (statuscode == 200)
+                                    {
+                                        if (!DR_url_list.Contains(url) && !DR_sorcefile_list.Contains(file))
+                                        {
+                                            DR_url_list.Add(url);
+                                            DR_sorcefile_list.Add(file);
+                                            dr_page_move(url);
+                                        }
+                                    }
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine(e.Message);
+                                }
+                                break;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        public void OS()
+        {
+            ;
+        }
+        public void HTTP()
+        {
+            ;
+        }
+        public void XSRF()
+        {
+            ;
+        }
+        public void dt_page_move(string url, int i)
+        {
+            Console.WriteLine(url);
+            Program.getConfig().Add(string.Format("{0}", No));
+            Program.getConfig().Add(url);
+            Program.getConfig().Add(Program.getAttack()[0 + 6 * i]);
+            Program.getConfig().Add(Program.getAttack()[2 + 6 * i]);
+            Program.getConfig().Add(Program.getAttack()[3 + 6 * i]);
+            Program.getConfig().Add(Program.getAttack()[4 + 6 * i]);
+            Program.getConfig().Add(Program.getAttack()[5 + 6 * i]);
+            Program.getConfig().Add("GET");
+            No++;
+            file_search fs = new file_search(url);
+            string page_up = fs.getPage_up();
+            List<string> page_down = fs.getPage_down();
+            if (page_up != null && page_up != "")//上の階層があれば [PARENTDIR]があれば
+            {
+                string dt_url = fs.url_shave(url);
+                //string dt_url = url_shave(url);//ex: http://192.168.33.10/MBSD/a/b/c/ →　http://192.168.33.10/MBSD/a/b/
+                if (!DT_url_list.Contains(dt_url))//前に検索した階層でなければ　http://192.168.33.10/MBSD/a/b/
+                {
+                    //Console.WriteLine(dt_url);//ex: http://192.168.33.10/MBSD/a/b/
+                    DT_url_list.Add(dt_url);
+                    dt_page_move(dt_url, i);
+                }
+            }
+            else//ぺージ表示が出来なかったら　　スラッシュで検索
+            {
+                int count = fs.url_slash_count(url);
+                //int count = url_slash_count(url);
+                if (count > 3)
+                {
+                    string dt_url = fs.url_shave(url);
+                    //string dt_url = url_shave(url);
+                    if (!DT_url_list.Contains(dt_url))//前に検索した階層でなければ
+                    {
+                        //Console.WriteLine(dt_url);//ex: http://192.168.33.10/MBSD/a/b/
+                        DT_url_list.Add(dt_url);
+                        dt_page_move(dt_url, i);
+                    }
+                }
+            }
+            if (page_down.Count != 0)//下の階層があれば
+            {
+                foreach (var item in page_down)
+                {
+                    if (item != null)
+                    {
+                        string dt_url = url + item;
+                        if (!DT_url_list.Contains(dt_url))
+                        {
+                            DT_url_list.Add(dt_url);
+                            //Console.WriteLine(dt_url);
+                            dt_page_move(dt_url, i);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (var item in test)
+                {
+                    try
+                    {
+                        using (var client = new HttpClient())
+                        {
+                            Console.WriteLine(url + item + "/");
+                            var uri = new Uri(url + item + "/");
+                            var r = client.GetAsync(uri).Result;
+                            int statuscode = (int)r.StatusCode;
+                            Task<string> r2 = client.GetStringAsync(url + item + "/");
+                            string file = r2.Result;
+                            if (statuscode == 200)
+                            {
+                                if (!DT_url_list.Contains(url + item + "/") && !DT_sorcefile_list.Contains(file))
+                                {
+                                    DT_url_list.Add(url + item + "/");
+                                    DT_sorcefile_list.Add(file);
+                                    dt_page_move(url + item + "/",i);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                }
+            }
+        }
+
+
+        public void dr_page_move(string url)
+        {
+            Program.getConfig().Add(string.Format("{0}", No));
+            Program.getConfig().Add(url);
+            Program.getConfig().Add("");
+            Program.getConfig().Add("5");
+            Program.getConfig().Add("100");
+            Program.getConfig().Add("200");
+            Program.getConfig().Add("1");
+            Program.getConfig().Add("GET");
+            No++;
+
+
+            file_search fs = new file_search(url);
+
+            string page_up = fs.getPage_up();
+            List<string> page_down = fs.getPage_down();
+            if (page_up != null && page_up != "")//上の階層があれば [PARENTDIR]があれば
+            {
+                string dr_url = fs.url_shave(url);
+                //string dr_url = url_shave(url);//ex: http://192.168.33.10/MBSD/a/b/c/ →　http://192.168.33.10/MBSD/a/b/
+                if (!DR_url_list.Contains(dr_url))//前に検索した階層でなければ　http://192.168.33.10/MBSD/a/b/
+                {
+                    //Console.WriteLine(dr_url);//ex: http://192.168.33.10/MBSD/a/b/
+                    DR_url_list.Add(dr_url);
+                    dr_page_move(dr_url);
+                }
+            }
+            else//ぺージ表示が出来なかったら　　スラッシュで検索
+            {
+                int count = fs.url_slash_count(url);
+                //int count = url_slash_count(url);
+                if (count > 3)
+                {
+                    string dr_url = fs.url_shave(url);
+                    //string dr_url = url_shave(url);
+                    if (!DR_url_list.Contains(dr_url))//前に検索した階層でなければ
+                    {
+                        //Console.WriteLine(dr_url);//ex: http://192.168.33.10/MBSD/a/b/
+                        DR_url_list.Add(dr_url);
+                        dr_page_move(dr_url);
+                    }
+                }
+            }
+
+
+            if (page_down.Count != 0)//下の階層があれば
+            {
+                foreach (var item in page_down)
+                {
+                    string dr_url = url + item;
+                    if (!DR_url_list.Contains(dr_url))
+                    {
+                        DR_url_list.Add(dr_url);
+                        //Console.WriteLine(dr_url);
+                        dr_page_move(dr_url);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var item in test)
+                {
+                    try
+                    {
+                        using (var client = new HttpClient())
+                        {
+                            Console.WriteLine(url + item+"/");
+                            var uri = new Uri(url + item + "/");
+                            var r = client.GetAsync(uri).Result;
+                            int statuscode = (int)r.StatusCode;
+                            Task<string> r2 = client.GetStringAsync(url + item + "/");
+                            string file = r2.Result;
+                            if (statuscode == 200)
+                            {
+                                if (!DR_url_list.Contains(url + item + "/") && !DR_sorcefile_list.Contains(file))
+                                {
+                                    DR_url_list.Add(url + item + "/");
+                                    DR_sorcefile_list.Add(file);
+                                    dr_page_move(url + item + "/");
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                }
+            }
+        }
+    }
+}

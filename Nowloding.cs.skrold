@@ -1,0 +1,474 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MBSD
+{
+
+    public partial class Nowloding : UserControl
+    {
+        Bitmap bitmap;
+        
+        const int num2 = 16;
+        int[] screen = new int[num2] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        int[] subscreen = new int[num2] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        bool isSecondPush = false;
+        bool isInvaidEvent = false;
+        int pushIndex;
+        int prevPushIndex;
+
+        //サイズ
+        const int length = 90;
+        //座標
+        int x = 100;
+        int y = 100;
+
+        private void Nowloding_Paint(object sender, PaintEventArgs e)
+        {
+            var destinationRectangles = new Rectangle[num2];
+            for (int i = 0; i < num2; ++i)
+            {
+                destinationRectangles[i] = new Rectangle(x + (i % 4) * length, y + (i / 4) * length, length, length);
+            }
+            var sourceRectangle = new Rectangle(0, 0, length, length);
+
+            for (int i = 0; i < num2; ++i)
+            {
+                switch (screen[i])
+                {
+                    case 0:
+                        bitmap = Properties.Resources.p0;
+                        break;
+                    case 1:
+                        bitmap = Properties.Resources.p1;
+                        break;
+                    case 2:
+                        bitmap = Properties.Resources.p2;
+                        break;
+                    case 3:
+                        bitmap = Properties.Resources.p3;
+                        break;
+                    case 4:
+                        bitmap = Properties.Resources.p4;
+                        break;
+                    case 5:
+                        bitmap = Properties.Resources.p5;
+                        break;
+                    case 6:
+                        bitmap = Properties.Resources.p6;
+                        break;
+                    case 7:
+                        bitmap = Properties.Resources.p7;
+                        break;
+                    case 8:
+                        bitmap = Properties.Resources.p8;
+                        break;
+                }
+                e.Graphics.DrawImage(bitmap, destinationRectangles[i], sourceRectangle, GraphicsUnit.Point);
+            }
+        }
+
+        private void Nowloding_MouseDown(object sender, MouseEventArgs e)
+        {
+            if ( y < e.Location.Y && e.Location.Y < length * 4 + y && x < e.Location.X && e.Location.X < length * 4 + x)
+            {
+                pushIndex = ((e.Location.Y - y) / length) * 4 + ((e.Location.X - x) / length);
+                if (screen[pushIndex] != 0)
+                {
+                    isInvaidEvent = true;
+                    return;
+                }
+                screen[pushIndex] = subscreen[pushIndex];
+                Invalidate();
+            }
+        }
+
+
+        private void Nowloding_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (pushIndex < 16)
+            {
+                if (isInvaidEvent)
+                {
+                    isInvaidEvent = false;
+                    return;
+                }
+                var hit = (screen[pushIndex] == screen[prevPushIndex]);
+                if (isSecondPush && !hit)
+                {
+                    Thread.Sleep(1000);
+                    screen[pushIndex] = 0;
+                    screen[prevPushIndex] = 0;
+                }
+                Invalidate();
+                isSecondPush = !isSecondPush;
+                prevPushIndex = pushIndex;
+            }
+        }
+
+
+        private void RandomLayout()
+        {
+            var random = new Random();
+            var lots = new List<int>() { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8 };
+            int i = 0;
+            while (lots.Any())
+            {
+                var n = random.Next(lots.Count);
+                subscreen[i] = lots[n];
+                lots.RemoveAt(n);
+                ++i;
+            }
+        }
+
+
+
+
+
+
+
+
+        private List<file_search> file_output = new List<file_search> { };
+        private List<string> url_action = new List<string> { };
+        private List<string> url_list = new List<string> { };
+
+        public string url1;
+        private string url2;
+
+
+        List<ConfigInfo> list_insCI;
+        UserControl1 ctrl;
+        private string URL_Path;
+        private bool sql;
+        private bool xss;
+        private bool dt;
+        private bool dr;
+        private Form1 form;
+        public Nowloding(Form1 form, UserControl1 ctrl,string URL_Path ,bool sql,bool xss, bool dt, bool dr)
+        {
+            this.URL_Path = URL_Path;
+            this.sql = sql;
+            this.xss = xss;
+            this.dt = dt;       
+            this.dr = dr;
+            this.form = form;
+            this.ctrl = ctrl;
+
+            InitializeComponent();
+
+
+            RandomLayout();
+
+            backgroundWorker1.RunWorkerAsync();
+        }
+
+        public void filecheak(string url)
+        {
+            if (!url_list.Contains(url))
+            {
+                file_search fs = new file_search(url);//actionやnameやidなどの情報を持ったインスタンスを作る
+                if (fs.getStatuscode() == 200)
+                {
+                    url_list.Add(url);
+                    file_output.Add(fs);//インスタンスをリストに追加していく
+                    //action_check(fs);
+                    href_check(fs);
+                }
+            }
+
+        }
+     
+        public void href_check(file_search fs)
+        {
+            foreach (var item in fs.getHref())
+            {
+                string href = item;
+                if (href != null && href != "" && href != "/" && href != "./")//中身が入っていたら
+                {
+                    string url = fs.getUrl();
+                    //Console.WriteLine(href);
+                    if (href.Length > 4)
+                    {
+                        if (href.Substring(0, 4) == "http")//絶対パスだったら  ex: http://xxx/yyy.php
+                        {
+                            string test = "";
+                            int count = 0;
+                            for (int i = 0; i < href.Length; i++)
+                            {
+                                if (url.Substring(i, 1) == "/")
+                                {
+                                    count++;
+                                    if (count == 3)
+                                    {
+                                        test = href.Substring(0, i + 1);
+                                        Console.WriteLine(test);
+                                        break;
+                                    }
+                                }
+                            }
+                            if (test == this.url1)
+                            {
+                                filecheak(href);
+                            }
+                        }
+                        else
+                        {
+                            int count1 = fs.url_slash_count(url) - 2;// ex:  http://000.00.00.000/aaa/bbb/ccc/testphp  →　4 (http://のスラッシュ分は省く)
+                            int count2 = 0;// hrefの../の数分カウントする  href:./../../../../../test.php → 5
+                            if (href.Substring(0, 2) == "./" || href.Substring(0, 3) == "../")
+                            {
+                                bool flg = false;
+                                if (href.Substring(0, 2) == "./") // href の始まり２文字が./だったら
+                                {
+                                    flg = true;
+                                }
+                                while (href.Length > 2)
+                                {
+                                    if (flg)
+                                    {
+                                        href = href.Substring(2, href.Length - 2); // ex:   ./../../../../../test.php →  ../../../../../test.php 
+                                        Console.WriteLine(href);
+                                        flg = false;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine(href);
+                                        if (href.Substring(0, 3) != "../")//  始まり３文字が../でなければ
+                                        {
+                                            break;
+                                        }
+                                        href = href.Substring(3, href.Length - 3); //ex: href が　../../test.php →　../test.php
+                                        Console.WriteLine(href);
+                                        count2++;
+                                    }
+                                }
+                                if (href.Contains("."))//hrefがフォルダではなく、test.php のファイルかどうか　"."で調べる
+                                {
+                                    if (count1 < count2)  // href の../の回数がhttp://000.00.00.000/aaa/bbb/ccc/testphpのスラッシュの数より多い場合
+                                    {
+                                        count2 = count1; //小さいほうに合わせる。
+                                    }
+                                    while (count2 > 0)
+                                    {
+                                        url = fs.url_shave(url);
+                                        count2--;
+                                    }
+                                    string hrefurl = url + href;
+                                    filecheak(hrefurl);
+                                }
+                            }
+                            else if (href.Substring(0, 1) == "/" && href.Substring(0, 2) != "//")//ドメインを省略している、かつ、プロトコル名を省略ではない。
+                            {
+                                if (href.Contains("."))
+                                {
+                                    string hrefurl = this.url1 + href.Substring(1, href.Length - 1);
+                                    filecheak(hrefurl);
+                                }
+                            }
+                            else
+                            {
+                                if (url2 != "")
+                                {
+                                    string hrefurl = this.url1 + fs.url_shave(this.url2) + href;
+                                    filecheak(hrefurl);
+                                }
+
+                            }
+
+
+                 
+                        }
+                    }
+                }
+            }
+        }
+
+        public void setUrl(string url)
+        {
+
+            int count = 0;
+            for (int i = 0; i < url.Length; i++)
+            {
+                if (url.Substring(i, 1) == "/")
+                {
+                    count++;
+                    if (count == 3)
+                    {
+                        this.url1 = url.Substring(0, i + 1);
+                        this.url2 = url.Substring(i + 1, url.Length - i - 1);
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ctrl = new UserControl1(form,list_insCI);
+            form.Controls.Add(ctrl);
+            ctrl.BringToFront();
+            ctrl.Visible = true;
+            this.Hide();
+            
+        }
+
+
+
+        //スレッドの処理
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (backgroundWorker1.CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            Program.getConfig().Clear();
+            file_output.Clear();
+            url_action.Clear();
+            url_list.Clear();
+            setUrl(URL_Path);
+            filecheak(URL_Path);
+
+            Console.WriteLine(file_output);
+
+            backgroundWorker1.ReportProgress(10);
+            file_attack_code fac = new file_attack_code(file_output, url1);
+
+            if (sql)//SQLのボタン
+            {
+                fac.SQL();
+            }
+            backgroundWorker1.ReportProgress(20);
+            if (backgroundWorker1.CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            if (xss)//XSSのボタン
+            {
+                fac.XSS();
+            }
+            backgroundWorker1.ReportProgress(30);
+            if (backgroundWorker1.CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            if (dt)//ディレクトリトラバーサルボタン
+            {
+                fac.DT();
+            }
+            backgroundWorker1.ReportProgress(40);
+            if (backgroundWorker1.CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            if (dr)//ディレクトリリスティング
+            {
+                fac.DR();
+            }
+            backgroundWorker1.ReportProgress(50);
+            if (backgroundWorker1.CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            //if (CSRF_radioButton.Checked)
+            //{
+
+            //}
+
+            //if (OSCI_radioButton.Checked)
+            //{
+
+            //}
+
+            //if (HTTPHI_radioButton.Checked)
+            //{
+
+            //}
+
+            //if (other_radioButton.Checked)
+            //{
+
+            //}
+
+            Console.WriteLine(Program.getConfig());
+
+            // ココから下の処理はCSVファイルができてる前提で処理を進める
+            FileUtil insFU = new FileUtil();
+            list_insCI = null;
+            int stat = 0;
+
+            // 鳴海版
+            //(stat, list_insCI) = insFU.setReadCsvFileNaru();
+            // 小藪さん版
+            (stat, list_insCI) = insFU.setReadCsvFile();
+
+            Console.WriteLine(list_insCI);
+
+            backgroundWorker1.ReportProgress(70);
+            if (backgroundWorker1.CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+            // 脆弱性の検知
+            SecurityCheck insSC = new SecurityCheck();
+            for (var i = 0; i < list_insCI.Count; i++)
+            {
+                insSC.attack_common(list_insCI[i]);
+            }
+            
+            backgroundWorker1.ReportProgress(100);
+            // result.csvの出力
+            //insFU.makeResultCSVFile(list_insCI);
+
+            // result.csvの出力 新
+            // insFU.makeResultCSVFileResource(list_insCI);      
+
+        }
+
+        //進捗度
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        //完了イベント
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            button1.Text = "準備完了";
+            button1.Enabled = true;
+            if (e.Cancelled)
+            {
+                MessageBox.Show("キャンセルされました");
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("処理が完了しました");
+                cancel.Enabled = false;
+            }
+            
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            backgroundWorker1.CancelAsync();
+        }
+    }
+}

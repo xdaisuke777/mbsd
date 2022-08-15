@@ -1,0 +1,487 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace MBSD
+{
+	class FileUtil
+	{
+		int OK_STAT = 1;
+		int NG_STAT = 0;
+		int stat = 0;
+
+
+		public (List<String>, int) readFile()
+		{
+
+			// リストの宣言
+			List<String> strList = new List<String>();
+			try
+			{
+				Encoding utf8 = System.Text.Encoding.GetEncoding("utf-8");
+
+				//string readFilePath = @"C:\Users\admin\Desktop\testFile.txt";
+
+				// 相対パスでファイルを指定する場合は、
+				// exeファイルがあるところを基準とする必要がある。
+				// 例
+				// C:\Users\admin\source\repos\WindowsFormsApp1\WindowsFormsApp_Test\bin\Debug\WindowsFormsApp_Test.exe
+				string readFilePath = @".\..\..\confFile\testFile2.txt";
+
+				// 読み込みたいテキストを開く
+				// StreamReader sr = new StreamReader(@"C:\Users\admin\Desktop\testFile.txt", Encoding.GetEncoding("utf⁠-⁠8")); // utf⁠-⁠8 //Shift_JIS
+				StreamReader sr = new StreamReader(readFilePath, utf8); // utf⁠-⁠8 //Shift_JIS
+
+
+				while (sr.EndOfStream == false)
+				{
+					string strLine = sr.ReadLine();
+					strList.Add(strLine);
+				}
+				sr.Close();
+
+			}
+			catch (IOException e)
+			{
+				// ファイルを読み込めない場合エラーメッセージを表示
+				Console.WriteLine("ファイルを読み込めませんでした");
+				Console.WriteLine(e.Message);
+				var stat = NG_STAT;
+				return (strList, stat);
+			}
+
+			stat = OK_STAT;
+			return (strList, stat);
+		}
+
+		/// <summary>
+		/// ファイルの書き込みメソッド
+		/// </summary>
+		/// <returns></returns>
+		public int writeFile()
+		{
+			Encoding utf8 = System.Text.Encoding.GetEncoding("utf-8");
+
+			StreamWriter insSW = new StreamWriter(@".\..\..\confFile\hoge.txt", false, utf8);
+			// insSW.WriteLine("hogeeee");
+
+
+			//TextBox1.Textの内容をファイルに書き込む
+			//	insSW.Write(_form1.textBox1.Text);
+
+			insSW.Close();
+
+			stat = OK_STAT;
+
+			return stat;
+		}
+
+		public void hoge()
+		{
+			try
+			{
+				// ファイルを読み取り形式で開く
+				StreamReader file = new StreamReader("text.txt", Encoding.UTF8);
+				string line = null;
+				while ((line = file.ReadLine()) != null)    // 1行ずつ読み込む
+				{
+					string[] text = line.Split(',');       // カンマで区切って配列に格納
+					Console.WriteLine(text[0] + " " + text[1]);
+				}
+				file.Close();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);       // エラーメッセージを表示
+			}
+		}
+
+		public (int, List<ConfigInfo>) setReadCsvFileNaru()
+		{
+			List<ConfigInfo> cilist = new List<ConfigInfo>();
+
+			try
+			{
+				// 相対パスでファイルを指定する場合は、
+				// exeファイルがあるところを基準とする必要がある。
+				// リストの宣言
+				List<String> strList = new List<String>();
+				Encoding utf8 = System.Text.Encoding.GetEncoding("utf-8");
+				string readFilePath = @".\..\..\confFile\config.csv";
+				StreamReader sr = new StreamReader(readFilePath, utf8); // utf⁠-⁠8 //Shift_JIS
+				while (sr.EndOfStream == false)
+				{
+
+					// 先頭行がヘッダーの場合はスキップする
+					string strLine = sr.ReadLine();
+					if (strLine[0] == '#')
+					{
+						continue;
+					}
+
+					string[] splitArray = strLine.Split(',');       // カンマで区切って配列に格納
+
+					int no = Int32.Parse(splitArray[0]);
+					string url = splitArray[1];
+					string query_parameter = splitArray[2];
+					int attack_type = Int32.Parse(splitArray[3]);
+					int omomi_type = Int32.Parse(splitArray[4]);
+					int target_status_code = Int32.Parse(splitArray[5]);
+					int attack_pattern = Int32.Parse(splitArray[6]);
+					string method = splitArray[7];
+
+					ConfigInfo insCI = new ConfigInfo(no, url, query_parameter, attack_type, omomi_type, target_status_code, attack_pattern, method);
+
+					cilist.Add(insCI);
+
+					insCI = null;
+
+				}
+				sr.Close();
+
+				return (OK_STAT, cilist);
+
+
+			}
+			catch (Exception e)
+			{
+				return (NG_STAT, cilist);
+			}
+
+		}
+
+		public (int, List<ConfigInfo>) setReadCsvFile()
+		{
+
+			List<ConfigInfo> cilist = new List<ConfigInfo>();
+			Console.WriteLine(cilist);
+			try
+			{
+				int elements_length = new ConfigInfo().getLength();
+				for (int i = 0; i < Program.getConfig().Count / elements_length; i++)
+				{
+					int no = Int32.Parse(Program.getConfig()[0 + i * elements_length]);
+					string url = Program.getConfig()[1 + i * elements_length];
+					string query_parameter = Program.getConfig()[2 + i * elements_length];
+					int attack_type = Int32.Parse(Program.getConfig()[3 + i * elements_length]);
+					int omomi_type = Int32.Parse(Program.getConfig()[4 + i * elements_length]);
+					int target_status_code = Int32.Parse(Program.getConfig()[5 + i * elements_length]);
+					int attack_pattern = Int32.Parse(Program.getConfig()[6 + i * elements_length]);
+					string method = Program.getConfig()[7 + i * elements_length];
+
+					Console.WriteLine(url);
+					ConfigInfo insCI = new ConfigInfo(no, url, query_parameter, attack_type, omomi_type, target_status_code, attack_pattern, method);
+
+					Console.WriteLine(insCI);
+					cilist.Add(insCI);
+
+				}
+				return (OK_STAT, cilist);
+			}
+			catch (Exception e)
+			{
+
+				return (NG_STAT, cilist);
+			}
+		}
+
+		public int makeResultCSVFile(List<ConfigInfo> listCI)
+		{
+			int length = listCI.Count;
+
+
+			Encoding utf8 = System.Text.Encoding.GetEncoding("utf-8");
+			StreamWriter insSW = new StreamWriter(@".\..\..\confFile\result.csv", false, utf8);
+
+
+			for (int i = 0; i < length; i++)
+			{
+				ConfigInfo insCI = listCI[i];
+				string strLine = insCI.makeFormat();
+				insSW.WriteLine(strLine);
+			}
+
+			insSW.Close();
+
+			return OK_STAT;
+		}
+
+		// 埋め込み
+		public int makeResultCSVFileResource(List<ConfigInfo> listCI)
+		{
+			int length = listCI.Count;
+
+
+			//Encoding utf8 = System.Text.Encoding.GetEncoding("utf-8");
+			var assembly = Assembly.GetExecutingAssembly();
+			//var resourceName = "MBSD.confFile.result.csv";
+			var resourceName = "MBSD.confFile.result";
+
+			using (var stream = assembly.GetManifestResourceStream(resourceName))
+			{
+				//StreamWriter insSW = new StreamWriter(@".\..\..\confFile\result.csv", false, utf8);
+
+				using (var sr = new StreamWriter(stream))
+				{
+					for (int i = 0; i < length; i++)
+					{
+						ConfigInfo insCI = listCI[i];
+						string strLine = insCI.makeFormat();
+						sr.WriteLine(strLine);
+					}
+
+				}
+			}
+
+
+			return OK_STAT;
+		}
+	}
+
+	class MethodUtil
+	{
+		public (bool, string) checkRegix(string strLine, string pattern)
+		{
+			//string hoge = "    <script>alert(\"Script\");</script>";
+			//string pattern = @"\s*<script>alert.*</script>Hack$"; //\s:空白 *:0回以上 $:行末 .:任意の一文字
+
+			Match match = Regex.Match(strLine, pattern);
+
+			return (match.Success, match.Value);
+		}
+
+		/// <summary>
+		/// 与えられた文字列を改行コードで分割し、返す
+		/// </summary>
+		/// <param name="strInfo"></param>
+		/// <returns></returns>
+		public string[] dataChange(String strInfo)
+		{
+			//string[] lines = strInfo.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+			string[] lines = strInfo.Split(new string[] { "\n" }, StringSplitOptions.None);
+
+
+			//Console.WriteLine(String.Join("\n", lines));
+
+
+			return lines;
+
+		}
+
+		public string execCommand(String url, bool isFlag)
+		{
+			// ステータスの取得
+			if (isFlag)
+			{
+				string command = "/c curl -LI \"" + url + "\"  -o /dev/null -w '%{http_code}' -s";
+
+				Console.WriteLine(command);
+
+
+				Process process = new Process();
+				ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe", command);
+
+				// プロセスを起動するための設定を行う  //
+				// プロセス用の新しいWindowsを表示しない
+				processStartInfo.CreateNoWindow = true;
+				processStartInfo.UseShellExecute = false;
+				processStartInfo.RedirectStandardOutput = true;
+				processStartInfo.RedirectStandardError = true;
+				processStartInfo.StandardOutputEncoding = Encoding.UTF8;
+
+				process = Process.Start(processStartInfo);
+
+				string stdOut = process.StandardOutput.ReadToEnd();
+				string stdErr = process.StandardError.ReadToEnd();
+				int exitCode = process.ExitCode;
+
+				process.WaitForExit();
+				process.Close();
+
+				Console.WriteLine(stdOut);
+
+				return stdOut;
+
+			}
+			// ソースファイルの取得
+			else
+			{
+
+				string command = "/c curl -L  \"" + url + "\" -s";
+
+				Console.WriteLine(command);
+
+				Process process = new Process();
+				ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe", command);
+
+				// プロセスを起動するための設定を行う  //
+				// プロセス用の新しいWindowsを表示しない
+				processStartInfo.CreateNoWindow = true;
+				processStartInfo.UseShellExecute = false;
+				processStartInfo.RedirectStandardOutput = true;
+				processStartInfo.RedirectStandardError = true;
+				processStartInfo.StandardOutputEncoding = Encoding.UTF8;
+
+				process = Process.Start(processStartInfo);
+
+				string stdOut = process.StandardOutput.ReadToEnd();
+				string stdErr = process.StandardError.ReadToEnd();
+				int exitCode = process.ExitCode;
+
+				process.WaitForExit();
+				process.Close();
+
+				Console.WriteLine(stdOut);
+
+
+				return stdOut;
+			}
+
+
+		}
+
+		public string requestURLSroce(string url)
+		{
+			// ソースファイル
+			string srocefile = "";
+			var handler = new HttpClientHandler
+			{
+				// 自動でリダイレクトする機能をOFFにする
+				AllowAutoRedirect = false
+			};
+			// ハンドラーを指定してHttpClientを作る
+			using (var client = new HttpClient(handler))
+			{
+				var uri = new Uri(url);
+				var r = client.GetAsync(uri).Result;
+				Task<string> r2 = client.GetStringAsync(url);
+				srocefile = r2.Result;
+			}
+			return srocefile;
+		}
+
+		public string requestURLStatusCode(string url)
+		{
+			// ステータスコード
+			string status_code = "";
+
+
+			// urlに対してのステータスを取得する処理
+			// urlに対してのステータスコードセットする処理を下記に記載する
+
+			var handler = new HttpClientHandler
+			{
+				// 自動でリダイレクトする機能をOFFにする
+				AllowAutoRedirect = false
+			};
+			// ハンドラーを指定してHttpClientを作る
+			using (var client = new HttpClient(handler))
+			{
+				var uri = new Uri(url);
+				var r = client.GetAsync(uri).Result;
+				status_code = string.Format("{0}", (int)r.StatusCode);
+			}
+			return status_code;
+		}
+
+		public string Cookie(string url,string method, Dictionary<string, string> dictionary)
+		{
+			try
+			{
+				Console.WriteLine(url);
+				CookieContainer cookies = new CookieContainer();
+				HttpClientHandler handler = new HttpClientHandler();
+				handler.CookieContainer = cookies;
+				handler.UseCookies = true;
+
+				if (method == "GET")
+                {
+					Uri uri = new Uri(url);
+					HttpClient client = new HttpClient(handler);
+					var response = client.GetAsync(uri).Result;
+					Console.WriteLine(response);
+					string cookie = response.Headers.GetValues("Set-Cookie").First();
+
+					return cookie;
+                }
+                else
+                {
+					Uri uri = new Uri(url);
+					HttpClient client = new HttpClient(handler);
+					var content = new FormUrlEncodedContent(dictionary);
+					var res = client.PostAsync(uri, content).Result;
+					string cookie = res.Headers.GetValues("Set-Cookie").First();
+					Console.WriteLine(res);
+					return cookie;
+                }
+
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				return null;
+			}
+
+		}
+
+		public bool IndexSearch(string url)
+		{
+			bool is_flag = false;
+
+			// ソースファイル
+			string srocefile = "";
+			try
+			{
+				var handler = new HttpClientHandler
+				{
+					// 自動でリダイレクトする機能をOFFにする
+					AllowAutoRedirect = false
+				};
+				// ハンドラーを指定してHttpClientを作る
+				using (var client = new HttpClient(handler))
+				{
+					var uri = new Uri(url);
+					var r = client.GetAsync(uri).Result;
+					Task<string> r2 = client.GetStringAsync(url);
+					srocefile = r2.Result;
+				}
+			}
+			// 404などでページのソースが取得できずに失敗したときの処理
+			catch (Exception e)
+			{
+				return is_flag;
+			}
+
+			//string pattern = @"\s*<script>alert.*</script>Hack$";
+
+			string[] list_src = dataChange(srocefile);
+			string pattern = @"\s*<title>Index of.*</title>$";
+			bool is_stat = false;
+			string tmp = "";
+			for (var i = 0; i < list_src.Length; i++)
+			{
+				string strLine = list_src[i];
+
+				(is_stat, tmp) = checkRegix(strLine, pattern);
+				if (is_stat)
+				{
+					is_flag = true;
+					break;
+				}
+
+			}
+
+			return is_flag;
+		}
+
+	}
+}

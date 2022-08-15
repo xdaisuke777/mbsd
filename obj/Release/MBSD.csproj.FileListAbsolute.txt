@@ -1,0 +1,73 @@
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Release\MBSD.exe.config
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Release\MBSD.exe
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Release\MBSD.pdb
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Release\WindowsFormsApp3.exe
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Release\WindowsFormsApp3.pdb
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\bin\Release\WindowsFormsApp3.exe.config
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Release\MBSD.Form1.resources
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Release\MBSD.Properties.Resources.resources
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Release\MBSD.UserControl1.resources
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.CopyComplete
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Release\MBSD.exe
+C:\Users\admin\Desktop\20211026_1143_MBSD\MBSD_naru2\MBSD\obj\Release\MBSD.pdb
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\bin\Release\MBSD.exe.config
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\bin\Release\MBSD.exe
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\bin\Release\MBSD.pdb
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.Form1.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.Properties.Resources.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.UserControl1.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.GenerateResource.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.exe
+C:\Users\admin7.DESKTOP-2GRCJ92\source\repos\20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.pdb
+D:\★20211101_1240\MBSD_naru2\MBSD\bin\Release\MBSD.exe.config
+D:\★20211101_1240\MBSD_naru2\MBSD\bin\Release\MBSD.exe
+D:\★20211101_1240\MBSD_naru2\MBSD\bin\Release\MBSD.pdb
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.AssemblyReference.cache
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.Form1.resources
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.Properties.Resources.resources
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.UserControl1.resources
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.GenerateResource.cache
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.CoreCompileInputs.cache
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.exe
+D:\★20211101_1240\MBSD_naru2\MBSD\obj\Release\MBSD.pdb
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\bin\Release\MBSD.exe.config
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\bin\Release\MBSD.exe
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\bin\Release\MBSD.pdb
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Release\MBSD.Form1.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Release\MBSD.Nowloding.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Release\MBSD.Properties.Resources.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Release\MBSD.UserControl1.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.GenerateResource.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Release\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Release\MBSD.exe
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\最新\★2021_1115_1612 - コピー\MBSD_naru2\MBSD\obj\Release\MBSD.pdb
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\bin\Release\MBSD.exe.config
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\bin\Release\MBSD.exe
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\bin\Release\MBSD.pdb
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\obj\Release\MBSD.csproj.AssemblyReference.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\obj\Release\MBSD.Form1.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\obj\Release\MBSD.Nowloding.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\obj\Release\MBSD.Properties.Resources.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\obj\Release\MBSD.UserControl1.resources
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\obj\Release\MBSD.csproj.GenerateResource.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\obj\Release\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\obj\Release\MBSD.exe
+C:\Users\admin7.DESKTOP-2GRCJ92\Downloads\★提出物-最終 second (2)\★提出物-最終 second\program\MBSD\obj\Release\MBSD.pdb
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\bin\Release\MBSD.exe.config
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\bin\Release\MBSD.exe
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\bin\Release\MBSD.pdb
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Release\MBSD.csproj.AssemblyReference.cache
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Release\MBSD.Form1.resources
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Release\MBSD.Nowloding.resources
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Release\MBSD.Properties.Resources.resources
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Release\MBSD.UserControl1.resources
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Release\MBSD.csproj.GenerateResource.cache
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Release\MBSD.csproj.CoreCompileInputs.cache
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Release\MBSD.exe
+C:\Users\xdais\OneDrive\デスクトップ\★提出物-最終 second\program\MBSD\obj\Release\MBSD.pdb
